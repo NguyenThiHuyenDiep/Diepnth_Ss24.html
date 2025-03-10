@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let choose=0, flag=0, len, sum=0,index, max, max2;
+        let arr=[];
+        do{
+            console.log('1. Nhap mang so nghuyen');
+            console.log('2. Hien thi mang');
+            console.log('3. Tim cac phan tu chan va le');
+            console.log('4. Tinh trung binh cong cua mang');
+            console.log('5. Xoa phan tu tai vi tri cho dinh');
+            console.log('6. Tim phan tu lon thu 2 trong mang');
+            console.log('7. Thoat chuong trinh');
+            choose=+prompt('lua chon cua ban');
+            switch(choose){
+                case 1: 
+                len=+prompt('nhap do sai cua mang');
+                let check=1;
+                for(let i=0; i<len; i++){
+                    arr[i]=+prompt('nhap phan tu thu '+(i+1));
+                    if(isNaN(arr[i])){
+                        check=0;
+                    }
+                }
+                if(check){
+                    flag=1;
+                    alert('nhap mang thanh cong ');
+                }else{
+                    alert('mang cua bna khong hop le');
+                }
+                    
+                break;
+                case 2: 
+                    if(flag){
+                        console.log(arr);
+                    }else{
+                        alert('ban chua nhap mang');
+            
+                    }
+                break;
+                case 3: 
+                if(flag){
+                    for(let val of arr){
+                        if(val%2==0){
+                            console.log(val +'la phan tu chan');
+                        }else{
+                            console.log(val +'la phan tu le');
+                        }
+                    }
+                }else{
+                    alert('ban chua nhap mang');
+            
+                }
+                    
+                break;
+                case 4: 
+                if(flag){
+                    sum=0;
+                    for(let val of arr){
+                        sum+=val;
+                    }
+                    console.log('trung binh cong cua mang la:'+(sum/len));
+                }else{
+                    alert('ban chua nhap mang');
+            
+                }
+                    
+                break;
+                case 5: 
+                if(flag){
+                    index=+prompt('nhap vi tri phan tu muon xoa');
+                    if(index>=0&& index<len){
+                        arr.splice(index,1);
+                        console.log(arr);
+                    }else{
+                        alert('vi tri muon xoa khong hop le');
+                    }
+                }else{
+                    alert('ban chua nhap mang');
+                }
+                break;
+                case 6: 
+                if(flag){
+                    max=arr[1];
+                    max2=arr[0];
+                    for(let val of arr){
+                        if(val>max){
+                            max=val;
+                        }  
+                    }
+                    for(let val of arr){
+                        if(val>max2 && val!== max){
+                            max2=val;
+                        }
+                    }
+                    console.log('phan tu lon thu 2 trong mang la:'+ max2);
+                }else{
+                    alert('ban chua nhap mang');
+                }
+                break;
+                case 7: 
+                console.log('ban da chon thoat');
+                break;
+            }
+        }while(choose!=7)
+    </script>
+</body>
+</html>

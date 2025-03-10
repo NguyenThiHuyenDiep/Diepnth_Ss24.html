@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let choose, len=0, flag=0, min=-1, max=-1, sum=0;
+        let arr=[];
+        
+        do{
+            console.log('1. Nhap mang');
+            console.log('2. Hien thi mang');
+            console.log('3. Tim phan tu lon nhat va nho nhat trong mang');
+            console.log('4. Tinh tong cac phan tu trong mang');
+            console.log('5. Tim so lan xuat hien cua mot phan tu trong mang');
+            console.log('6. Sap xep mang tang dan');
+            console.log('7. Thoat chuong trinh');
+            choose=+prompt('nhap lua chon cua ban');
+            switch(choose){
+                case 1:
+                len=+prompt('nhap do sai cua mang');
+                let check=1;
+                for(let i=0; i<len; i++){
+                    arr[i]=+prompt('nhap phan tu thu '+(i+1));
+                    if(isNaN(arr[i])){
+                        check=0;
+                    }
+                }
+                if(check){
+                    flag=1;
+                    alert('nhap mang thanh cong ');
+                }else{
+                    alert('mang cua bna khong hop le');
+                }
+                    
+                break;
+                    
+                case 2:
+                    if(flag){
+                        console.log(arr);
+                    }else{
+                        alert('ban chua nhap mang');
+                    }
+                break;
+                case 3:
+                if(flag){
+                        min=arr[0];
+                        max=arr[0];
+                       for(let val of arr){
+                            
+                            if(val>max){
+                                max=val;
+                            }
+                            if(val<min){
+                                min=val;
+                            }
+                       } 
+                       console.log('phan tu lon nhat la:'+max);
+                       console.log('phan tu nho nhat la:'+min);
+                }else{
+                        alert('ban chua nhap mang');
+                }
+                    break;
+                case 4: 
+                    if(flag){
+                        sum=0;
+                        for(let val of arr){
+                            sum+=val;
+                        }
+                        console.log('tong cac phan tu trong mang la:'+sum);
+                    }else{
+                        alert('ban chua nhap mang');
+                    }
+                break;
+                case 5: 
+                    if(flag){
+                        let num=+prompt('nhap phan tu ban muon tim so lan suat hien');
+                        let check=0;
+                        for(let val of arr){
+                            if(num== val){
+                                check++;
+                            }
+                        }
+                        console.log('so lan xuat hien cua phan tu '+ num + ' la '+check+' lan');
+                    }else{
+                        alert('ban chua nhap mang');
+                    }
+                break;
+                case 6: 
+                if(flag){
+                    let member;
+                    for(let i=0; i<len; i++){
+                        for(let k=0; k<len; k++){
+                            if(arr[i]<arr[k]){
+                                member=arr[i];
+                                arr[i]=arr[k];
+                                arr[k]=member;
+                            }
+                        }
+                    }
+                    console.log(arr);
+                }else{
+                    alert('ban chua nhap mang');
+                }
+                break;
+                case 7: 
+                    console.log('ban da chon thoat');
+                break;
+                default:
+                console('lua chon cua ban khong co trong menu')
+            }
+        }while(choose!=7)
+                    
+
+            
+
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let choose;
+        let row=0, col=0, flag=0, sum, max;
+        let arr=[[]];
+        do{
+            console.log('1. Nhap mang 2 chieu');
+            console.log('2. Hien thi mang 2 chieu');
+            console.log('3. Tinh tong cac phan tu trong mang');
+            console.log('4. Tim phan tu lon nhat va chi so cua no');
+            console.log('5. Tinh trung binh cong cac phan tu cua mot hang cu the');
+            console.log('6. Dao nguoc cac hang trong mang');
+            console.log('7. Thoat chuong trinh');
+            choose=+prompt('lua chon cua ban');
+            switch(choose){
+                case 1: 
+                    row=+prompt('nhap so hang cho mang 2 chieu');
+                    col=+prompt('nhap so cot cho mang 2 chieu');
+                    arr[row];
+                    for(let i=0; i<row; i++){
+                        arr[i]=new Array(col);
+                    }
+                    for(let i=0; i<row; i++){
+                        for(let j=0; j<col; j++){
+                            arr[i][j]=+prompt('nhap phan tu hang '+(i+1)+' cot '+(j+1));
+                        }
+                    }
+                    flag=1;
+                    alert('nhap mang 2 chieu thanh cong');
+                break;
+                case 2: 
+                    if(flag){
+                        console.log(arr);
+                    }else{
+                        alert('ban chua nhap mang');
+                    }
+                break;
+                case 3: 
+                if(flag){
+                    sum=0;
+                    for(let row of arr){
+                        for(let val of row){
+                            sum+=val;
+                        }
+                    }
+                    console.log('tong cac phan tu trong mang 2 chieu la '+sum);
+                }else{
+                    alert('ban chua nhap mang');
+                }
+                break;
+                case 4: 
+                if(flag){
+                    max=arr[0][0];
+                    let a,b;
+                    for(let i in arr){
+                        for(let j in arr){
+                            if(arr[i][j]>max){
+                            max=arr[i][j];
+                            a=i;
+                            b=j;
+                            }
+                        }
+                    }
+                    console.log('phan tu lon nhat la '+max+ ' chi so la arr['+a+']'+'['+b+']');
+                }else{
+                    alert('ban chua nhap mang');
+                }
+                break;
+                case 5: 
+                if(flag){
+                    sum=0;
+                    let count=0;
+                    let r=+prompt('nhap hang bat ky de tinh trung binh cong phan tu');
+                    if(r>=0&&r<row){
+                        for(let i=0; i<col; i++){
+                            sum+=arr[r][i];
+                            count++;
+                        }
+                        console.log('trung binh cong bang '+(sum/count));
+                    }else{
+                        alert('hang ban nhap khong hop le');
+                    }
+                }else{
+                    alert('ban chua nhap mang');
+                }
+                break;
+                case 6: 
+                if(flag){
+                    for (let i = 0; i < row; i++) {
+                        arr[i].reverse(); // Đảo ngược từng hàng
+                    }
+
+                    arr.reverse();
+                    console.log(arr);
+                }else{
+                    alert('ban chua nhap mang');
+                }
+                break;
+                case 7:
+                    console.log('ban da chon thoat');
+                break;
+
+            }
+        }while(choose!=7)
+    </script>
+</body>
+</html>
