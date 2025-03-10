@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let choose;
+        let row=0, col=0, flag=0;
+        let arr=[[]];
+        do{
+            console.log('1. Nhap mang 2 chieu');
+            console.log('2. Hien thi mang 2 chieu');
+            console.log('3. Tinh tong cac phan tu trong mang');
+            console.log('4. Tinh tong duong cheo chinh');
+            console.log('5. Tinh tong duong cheo phu');
+            console.log('6. Tinh trung binh cong cac phan tu trong mot hang hoac 1 cot');
+            console.log('7. Thoat chuong trinh');
+            choose=+prompt('lua chon cua ban');
+            switch(choose){
+                case 1: 
+                    row=+prompt('nhap so hang cho mang 2 chieu');
+                    col=+prompt('nhap so cot cho mang 2 chieu');
+                    arr[row];
+                    for(let i=0; i<row; i++){
+                        arr[i]=new Array(col);
+                    }
+                    for(let i=0; i<row; i++){
+                        for(let j=0; j<col; j++){
+                            arr[i][j]=+prompt('nhap phan tu hang '+(i+1)+' cot '+(j+1));
+                        }
+                    }
+                    flag=1;
+                break;
+                case 2: 
+                    if(flag){
+                        console.log(arr);
+                    }else{
+                        alert('ban chua nhap mang');
+                    }
+                break;
+                case 3: 
+                if(flag){
+                    sum=0;
+                    for(let row of arr){
+                        for(let val of row){
+                            sum+=val;
+                        }
+                    }
+                    console.log('tong cac phan tu trong mang 2 chieu la '+sum);
+                }else{
+                    alert('ban chua nhap mang');
+                }
+                break;
+                case 4: 
+                if(flag){
+                    let sum=0;
+                    if(col==row){
+                        for(let i=0; i<col; i++){
+                            sum+=arr[i][i];
+                        }
+                        console.log('tong duong cheo chinh la: '+sum);
+                    }else{
+                        alert('mang khong co duong cheo chinh');
+                    }
+                }
+                break;
+                case 5: 
+                if(flag){
+                    if(col==row){
+                        let sum=0;
+                        for(let i=col-1; i>=0; i--){
+                            sum+=arr[i][col-1-i];
+                        }
+                        console.log('tong duong cheo phu la: '+sum);
+                    }else{
+                        alert('mang khong co duong cheo phu');
+                    }
+                }else{
+                    alert('mang khong co duong cheo chinh');
+                }
+                break;
+                case 6: 
+                if(flag){
+                    let choice;
+                    do{
+                        choice=+prompt('1: hang <br> 2:cot');
+                    }while(choice!=1 &&choice!=2)
+                    if(choice==1){
+                        sum=0;
+                        let count=0;
+                        let r=+prompt('nhap hang bat ky de tinh trung binh cong phan tu');
+                        if(r>=0&&r<row){
+                            for(let i=0; i<col; i++){
+                                sum+=arr[r][i];
+                                count++;
+                            }
+                            console.log('trung binh cong bang '+(sum/count));
+                        }else{
+                        alert('hang ban nhap khong hop le');
+                        }
+                    }else{
+                        sum=0;
+                        let count=0;
+                        let c=+prompt('nhap cot bat ky de tinh trung binh cong phan tu');
+                        if(c>=0&&c<col){
+                            for(let i=0; i<row; i++){
+                                sum+=arr[i][c];
+                                count++;
+                            }
+                            console.log('trung binh cong bang '+(sum/count));
+                        }else{
+                            alert('cot ban nhap khong hop le');
+                        }
+                    }
+                }else{
+                    alert('mang khong co duong cheo chinh');
+                }
+                break;
+                case 7: 
+                    console.log('ban chon thoat');
+                break;
+            }
+        }while(choose!=7)
+    </script>
+</body>
+</html>
